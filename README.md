@@ -16,6 +16,7 @@ password - Test123
 - **URL Shortening**: (Assumed feature, add if implemented in `ShortenForm.jsx`).
 - **QR Code** : Generates the QR code for the url.
 - **Pagination** : (Can be selected how many url's per page)
+- **search** : (can be searched url)
   
 
 ## Tech Stack
