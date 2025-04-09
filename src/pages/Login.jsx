@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import { setToken } from '../redux/authSlice';
 import axios from 'axios';
 
+const backendURL = import.meta.env.VITE_BACKEND_URL;
+
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -18,7 +20,7 @@ const Login = () => {
     setError('');
     
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/login', { email, password });
+      const res = await axios.post(`${backendURL}/api/auth/login`, { email, password });
       dispatch(setToken(res.data.token));
       navigate('/home');
     } catch (err) {

@@ -3,6 +3,9 @@ import axios from 'axios';
 import QRCode from 'react-qr-code';
 import { useNavigate } from 'react-router-dom';
 
+const backendURL = import.meta.env.VITE_BACKEND_URL;
+
+
 const ShortenForm = () => {
   const [originalUrl, setOriginalUrl] = useState('');
   const [alias, setAlias] = useState('');
@@ -22,7 +25,7 @@ const ShortenForm = () => {
       }
 
       const res = await axios.post(
-        'http://localhost:5000/api/links/shorten',
+        `${backendURL}/api/links/shorten`,
         { originalUrl, alias, expiresAt },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -36,7 +39,7 @@ const ShortenForm = () => {
   };
 
   const handleCopy = () => {
-    navigator.clipboard.writeText(`http://localhost:5000/${shortUrl}`);
+    navigator.clipboard.writeText(`${backendURL}/${shortUrl}`);
     alert('Short URL copied to clipboard!');
   };
 
@@ -88,12 +91,12 @@ const ShortenForm = () => {
             <p className="text-gray-700 mb-2">
               Short URL:{' '}
               <a
-                href={`http://localhost:5000/${shortUrl}`}
+                href={`${backendURL}/${shortUrl}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-teal-600 hover:underline"
               >
-                {`http://localhost:5000/${shortUrl}`}
+                {`${backendURL}/${shortUrl}`}
               </a>
             </p>
             <button
@@ -104,7 +107,7 @@ const ShortenForm = () => {
             </button>
             <div className="flex justify-center">
               <QRCode
-                value={`http://localhost:5000/${shortUrl}`}
+                value={`${backendURL}/${shortUrl}`}
                 size={160}
                 bgColor="#ffffff"
                 fgColor="#000000"

@@ -14,6 +14,8 @@ import {
   ResponsiveContainer,
 } from 'recharts';
 
+const backendURL = import.meta.env.VITE_BACKEND_URL;
+
 const Dashboard = () => {
   const [links, setLinks] = useState([]);
   const [search, setSearch] = useState('');
@@ -36,7 +38,7 @@ const Dashboard = () => {
     const fetchLinks = async () => {
       setLoading(true);
       try {
-        const res = await axios.get('http://localhost:5000/api/links/analytics', {
+        const res = await axios.get(`${backendURL}/api/links/analytics`, {
           headers: { Authorization: `Bearer ${token}` },
           params: { search, page, limit: itemsPerPage },
         });
@@ -96,10 +98,10 @@ const Dashboard = () => {
             setSearch(e.target.value);
             setPage(1);
           }}
-          className="flex-1 p-3 border rounded-lg shadow-sm focus:outline-none  focus:ring-2 focus:ring-teal-500"
+          className="flex-1 p-3 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-teal-500"
         />
         <div className="flex items-center">
-          <label htmlFor="itemsPerPage" className="mr-2 text-white">URLs per page:</label>
+          <label htmlFor="itemsPerPage" className="mr-2 text-teal-600">URLs per page:</label>
           <select
             id="itemsPerPage"
             value={itemsPerPage}
@@ -148,7 +150,7 @@ const Dashboard = () => {
                     </td>
                     <td className="p-3 border-t text-teal-600">
                       <a
-                        href={`http://localhost:5000/${link.shortUrl}`}
+                        href={`${backendURL}/${link.shortUrl}`}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
@@ -178,7 +180,7 @@ const Dashboard = () => {
             </table>
           </div>
 
-          {/* Charts Section opens when open chart button is clicked */}
+          {/* Charts Section */}
           {links.map((link) => (
             expandedCharts[link._id] && (
               <div key={`chart-${link._id}`} className="bg-white p-6 rounded-lg shadow-md">
