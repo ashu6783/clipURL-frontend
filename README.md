@@ -1,12 +1,35 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+---
 
-Currently, two official plugins are available:
+### Frontend `README.md`
+```markdown
+# ClipURL Frontend
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This is the frontend for the ClipURL application, a URL shortening service with a dashboard and analytics. It interacts with the backend hosted at `https://clipurl-backend.onrender.com`.
 
-## Expanding the ESLint configuration
+## Features
+- **Login**: User authentication.
+- **Home**: Navigation to shorten URLs or view dashboard.
+- **Dashboard**: View shortened URLs with click analytics and charts.
+- **URL Shortening**: (Assumed feature, add if implemented in `ShortenForm.jsx`).
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Tech Stack
+- **React**: UI library.
+- **Redux**: State management for authentication.
+- **Axios**: HTTP requests.
+- **Recharts**: Data visualization for analytics.
+- **Tailwind CSS**: Styling.
+- **React Router**: Navigation.
+- **Dependencies**: `axios`, `react-redux`, `@reduxjs/toolkit`, `react-router-dom`, `recharts`.
+
+## Prerequisites
+- Node.js (v16 or higher)
+- Backend deployed at `https://clipurl-backend.onrender.com`
+
+## Setup Instructions
+
+### Local Development
+1. **Clone the Repository**:
+   ```bash
+   git clone <repository-url>
+   cd client
