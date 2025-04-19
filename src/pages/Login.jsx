@@ -35,7 +35,7 @@ const Login = () => {
     <div className="flex justify-center items-center min-h-screen bg-gray-100">
       <div className="w-full max-w-md p-8 space-y-8 bg-white rounded-lg shadow-lg">
         <div className="text-center">
-          <h2 className="text-2xl font-bold text-teal-800">Hey - Decoit Digital</h2>
+          <h2 className="text-2xl font-bold text-teal-800">Hey👨‍💻</h2>
           <h1 className="text-3xl font-bold text-gray-800">Wishing you a great day!</h1>
           <p className="mt-2 text-gray-600">Sign in to your account</p>
         </div>
